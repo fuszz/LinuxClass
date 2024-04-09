@@ -1,0 +1,26 @@
+ 13 marca 2024 - Linux Lab 3
+ Na 5. zajęciach będzie kolokwium - bez korzystania z manuali i notatek, to nie będzie horror.
+
+dialog - pakiet do wyświetlania graficznych okienek dialogowych.
+
+Obliczenia matematyczne - bash ma ograniczoną moc: na operacjach całkowitych jest ok, ale nie obsługuje liczb zmiennoprzecinkowych. Aby to obejść, powstał kalkulator bc.
+
+Kalkulator bc: bardzo duża precyzja. Powinien być domyślnie zainstalowany w systemie, jeśli go nie ma, to sudo dnf install bc i powinien być :)
+Ma dwa tryby:
+    - interaktywny
+    - przekazanie danych ze skryptu
+Tryb interaktywny:
+np. 5+4 -> 9
+itd...
+Dwa tryby: standardowy i naukowy (obliczenia o wyższej precyzji)
+Aby wyjść z bc, piszemy quit()
+
+Dalsze info w skrypt1bc.sh i skrypt2bc.sh
+
+=== Okna dialogowe ==================================================
+istotne jest manipulowanie deskryptorami.
+
+przykłady: plik expDialog.sh
+
+
+
