@@ -1,0 +1,85 @@
+======================== Lab1 : Bash ==================================================================
+
+skrypt - jest interpretowany (a program wykonywany). Jest zapisany z rozszerzeniem .sh. Na początek podajemy informację o interpreterze. 
+
+Sposoby uruchomienia skryptu-----------
+1. './' nadanie uprawnień wykonalności, oznaczenie interpretera i uruchomienie skryptu (wymaga podania interpretera w pliku)
+2. '<wskazanie powłoki> <wskazanie źródła>' uruchomienie powłoki ze wskazaniem pliku zawierającego skrypt
+3. '. <nazwa skryptu>' - kropka uruchamia domyślną powłokę systemową 
+4. 'source <nazwa skryptu>' - source robi to samo, co kropka
+5. '/usr/bin/bash' podanie pełnej ścieżki do interpretera. 
+---------------------------------------
+
+----- UWAGA ---------------------------
+Nie można wysyłać .txt jako rozszerzenia. Nie będą sprawdzane zadania w innym formacie niż .sh i .zip. Nie umieszczamy też kilku zadań w jednym pliku. Chyba, że jasno zażądano inaczej. 
+---------------------------------------
+
+Żeby poznać lokalizację pliku wykonywalnego używamy
+whereis <nazwa pliku>: np. whereis bash
+dostajemy info: gdzie jest interpreter i gdzie jest pomoc (manual). Na Ubuntu w pracowni: /usr/bin/bash
+
+
+W pliku:
+#!/usr/bin/bash (jeśli znamy konkretne położenie powłoki) lub
+#!/usr/bin/env bash (jeśli nie znamy konkretnego położenia, odwołujemy się do zmiennej środowiskowej)
+
+Za pomocą # stosujemy komentarz. 
+bash-complation <--- pakiet do uzupełniania tabulatorem składni
+
+UPRAWNIENIA
+chmod +x <nazwa> <--- nadaje uprawnienia wykonywalności WSZYSTKIM
+Z reguły pliki wykonywalne są na zielono. 
+
+Apostrofy: echo
+W przypadku pojedynczego apostrofu '' zmienna jest po prostu literałem
+W przypadku podwójnego "" zmienna między znakami jest zamieniana na jej wartość
+
+Znak \ neguje szczególne działanie znaku.
+. <- wskazuje obecny katalog
+.. <- wskazuje katalog nadrzędny 
+
+Polecenia konsoli:
+jeśli po -a (parametrze) nie podajemy żadnej wartości, to wtedy możemy połączyć takie parametry do jednego -. 
+Parametr ogólny (taki, że nie ma po nim wartości). Parametr z wartością (np. ... -n 5) to taki, że trzeba podać po nim wartość. 
+
+Jeśli po echo użyjemy odwróconego apostrofu `` (pod ~), to wyświetlimy output polecenia między ``. 
+
+Bash nie informuje o występowaniu błędów. Najlepiej się zabezpieczyć, wszystkie warningi i wgl wysyłamy na nulla. 
+
+RODZAJE ZMIENNYCH ======================= MEGA WAŻNE: między znakiem = a resztą nie wstawiamy spacji!!!
+	a. zmienne lokalne: 
+		a="Ala",
+		a=`pwd`
+		
+	b. zmienne specjalne
+		pod zmienną wrzucamy pewne elementy. Dobrze wziąć to w "", bo potrafi to być duże i się może krzaczyć. 
+		$0 - oznacza nazwę pliku źródłowego, 
+		$@ - wszystkie parametry skryptu,
+		$? - kod powrotu ostatnio wykonanego polecenia (wynik, w sensie kod). Poprawnie wykonane polecenie zwraca zazwyczaj 0.
+		$$ - pid bieżącej powłoki, czyli tej, która wykonuje skrypt.
+		
+	c. zmienne środowiskowe
+		- zmienne środowiskowe lokalne - tworzymy zmienną w pewnej powłoce `a="test"`. Jest ona widoczna tylko w tej powłoce. 
+		- zmienne środowiskowe globalne - tworzymy zmienną lokalną i eksportujemy ją, np. `export a`. Usuwamy zmienną globalną poprzez `export -n a`.
+
+W $() dajemy spacje: $( <...> ). Będzie działać i bez, ale jest lepsza czytelność i podobnie jest w instrukcjach warunkowych. 
+
+
+kill ========> mordowanie procesów. 
+	kill <pid> --> grzeczna prośba do procesu żeby się zabił.
+	kill -9 <pid> --> proces jest brutalnie mordowany
+
+`bash` w powłoce tworzy nową powłokę. Do poprzedniej wracamy za pomocą polecenia `exit`. 
+polecenie `history` pozwala na dostęp do historii. Za pomocą `history !5` (bez spacji między ! i numerem) wywołujemy 5. polecenie zapisane w historii.
+
+`export -n` wyświeti nam wszystkie zmienne globalne
+
+Jak mamy duży plik, to można wyświetlić z pomocą less lub more.
+
+
+Popularne zmienne środowiskowe:
+	- path - ścieżki do skrócenia wywołań plików wykonywalnych. 
+	- home
+	
+
+
