@@ -1,0 +1,7 @@
+myPipe
+plik12.txt
+plik1.txt
+plik2.txt
+plik.txt
+skrypt2.sh
+skrypt3.sh
